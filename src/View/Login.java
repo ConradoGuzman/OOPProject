@@ -10,6 +10,3 @@ public class Login {
     private JPanel panel1;
     private JPasswordField passwordField1;
 }
-
-public static void main(String[] args) {
-}
