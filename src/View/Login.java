@@ -24,7 +24,7 @@ public class Login {
                 //frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
                 frame.pack();
                 frame.setVisible(true);
-                frame.dispose();
+                //frame.dispose();
             }
         });
     }
