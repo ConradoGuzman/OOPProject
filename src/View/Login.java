@@ -23,7 +23,7 @@ public class Login {
                 //frame.setContentPane(Seller().SellerPane);
                 //frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
                 frame.pack();
-                frame.setVisible(true); //you can't see me!
+                frame.setVisible(true);
                 frame.dispose();
             }
         });
