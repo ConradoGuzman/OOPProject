@@ -17,23 +17,47 @@ public class Login {
         loginButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                JFrame frame = new JFrame("Shopping Cart");
-                //System.out.println("Cool");
-                //frame.set
-                //frame.setContentPane(Seller().SellerPane);
-                //frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-                frame.pack();
-                frame.setVisible(true);
-                //frame.dispose();
+                //Check credentials
+
+                String username = textField1.getText();
+                String password = passwordField1.getText();
+
+                if (username.contentEquals("user") && password.contentEquals("Password")){
+                    System.out.println(textField1);
+                    JFrame frame = new JFrame("Shopping Cart");
+                    frame.pack();
+                    frame.setVisible(true);
+                    JOptionPane.showMessageDialog(null, "welcome!");
+                    frame.dispose();
+                    Buyer buyer = new Buyer(frame);
+
+                    buyer.setVisible(true);
+                }
+
+                else if(username.contentEquals("seller") && password.contentEquals("Password")){
+                    System.out.println(textField1);
+                    JFrame frame = new JFrame("Shopping Cart");
+                    frame.pack();
+                    frame.setVisible(true);
+                    JOptionPane.showMessageDialog(null, "welcome!");
+                    frame.dispose();
+                    Buyer buyer = new Buyer(frame);
+
+                    buyer.setVisible(true);
+                }
+
+                else{
+
+                    JOptionPane.showMessageDialog(null, "Please Enter Valid Credential");
+                }
+
             }
         });
     }
 
 
-
-
-    public static void main(String[] args) {
-        JFrame frame = new JFrame("Shopping Cart");
+    public static void logInHome() {
+        JFrame frame = new JFrame("Shopping Cart Program");
         frame.setContentPane(new Login().LoginHome);
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.setLocationRelativeTo(null);
