@@ -8,6 +8,7 @@ import javax.swing.*;
 public class Buyer extends javax.swing.JFrame {
     private JPanel BuyerHome;
     private JTable table1;
+    private JTextPane textPane1;
 
     public Buyer(String username) {
 

@@ -35,9 +35,17 @@ public class Login {
                 }
 
                 else{
-                    JOptionPane.showMessageDialog(null, username + " Please Enter Valid Credential");
+                    JOptionPane.showMessageDialog(null, username + " Please Enter Valid Credentials");
                 }
 
+            }
+        });
+
+
+        registerButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new Register(textField1.getText());
             }
         });
     }
