@@ -6,16 +6,18 @@ import javax.swing.*;
  * Created by conradoguzman on 4/6/17.
  */
 public class Buyer extends javax.swing.JFrame {
-    private JLabel BuyerPane;
     private JPanel BuyerHome;
+    private JTable table1;
 
-    public Buyer(JFrame frame)
-    {
-        frame.setContentPane(new Buyer(frame).BuyerHome);
-        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        frame.setLocationRelativeTo(null);
+    public Buyer(String username) {
+
+        JOptionPane.showMessageDialog(null, "welcome " + username + "!");
+
+        JFrame frame = new JFrame("Buyer Portal");
         frame.pack();
+        frame.setLocationRelativeTo(null);
         frame.setVisible(true);
+
     }
 
 }

@@ -12,8 +12,10 @@ public class Login {
     private JPanel LoginHome;
     private JPasswordField passwordField1;
     private JButton loginButton;
+    private JButton registerButton;
 
     public Login() {
+
         loginButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -22,33 +24,18 @@ public class Login {
                 String username = textField1.getText();
                 String password = passwordField1.getText();
 
-                if (username.contentEquals("user") && password.contentEquals("Password")){
-                    System.out.println(textField1);
-                    JFrame frame = new JFrame("Shopping Cart");
-                    frame.pack();
-                    frame.setVisible(true);
-                    JOptionPane.showMessageDialog(null, "welcome!");
-                    frame.dispose();
-                    Buyer buyer = new Buyer(frame);
+                if (username.contentEquals("buyer") && password.contentEquals("Password")){
 
-                    buyer.setVisible(true);
+                    new Buyer(username);
                 }
 
                 else if(username.contentEquals("seller") && password.contentEquals("Password")){
-                    System.out.println(textField1);
-                    JFrame frame = new JFrame("Shopping Cart");
-                    frame.pack();
-                    frame.setVisible(true);
-                    JOptionPane.showMessageDialog(null, "welcome!");
-                    frame.dispose();
-                    Buyer buyer = new Buyer(frame);
 
-                    buyer.setVisible(true);
+                    new Seller(username);
                 }
 
                 else{
-
-                    JOptionPane.showMessageDialog(null, "Please Enter Valid Credential");
+                    JOptionPane.showMessageDialog(null, username + " Please Enter Valid Credential");
                 }
 
             }
@@ -60,8 +47,9 @@ public class Login {
         JFrame frame = new JFrame("Shopping Cart Program");
         frame.setContentPane(new Login().LoginHome);
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        frame.setLocationRelativeTo(null);
+
         frame.pack();
+        frame.setLocationRelativeTo(null);
         frame.setVisible(true);
     }
 }
