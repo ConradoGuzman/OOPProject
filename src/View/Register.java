@@ -1,6 +1,8 @@
 package View;
 
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 /**
  * Created by conradoguzman on 4/9/17.
@@ -8,17 +10,24 @@ import javax.swing.*;
 public class Register {
 
     private JPanel panel1;
+    private JButton registerButton;
+    private JPasswordField passwordField1;
+    private JPasswordField passwordField2;
     private JTextField textField1;
-    private JTextField textField2;
 
     public Register(String username) {
-
-        //JOptionPane.showMessageDialog(null, "welcome " + username + "!");
-
         JFrame frame = new JFrame("Registration Portal");
+
+        frame.setContentPane(panel1);
         frame.pack();
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
 
+        registerButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame.dispose();
+            }
+        });
     }
 }
