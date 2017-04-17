@@ -1,24 +1,33 @@
 package View;
 
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 /**
  * Created by conradoguzman on 4/6/17.
  */
 public class Seller {
     public JPanel SellerPane;
-    private JTabbedPane tabbedPane1;
-    private JTabbedPane tabbedPane2;
-    private JTable table1;
+    private JPanel home;
+    private JButton logOutButton;
 
-    public Seller(String username){
+    public Seller(){
 
-        JOptionPane.showMessageDialog(null, "welcome " + username + "!");
+        JFrame frame = new JFrame("Buyer Portal");
 
-        JFrame frame = new JFrame("Seller Portal");
+        frame.setContentPane(home);
         frame.pack();
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
+
+        logOutButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame.dispose();
+                Start start = new Start();
+            }
+        });
 
     }
 
