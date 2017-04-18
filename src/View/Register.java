@@ -14,6 +14,7 @@ public class Register {
     private JPasswordField passwordField1;
     private JPasswordField passwordField2;
     private JTextField textField1;
+    private JButton cancelButton;
 
     public Register(String username) {
         JFrame frame = new JFrame("Registration Portal");
@@ -24,6 +25,13 @@ public class Register {
         frame.setVisible(true);
 
         registerButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame.dispose();
+                Start start = new Start();
+            }
+        });
+        cancelButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 frame.dispose();
