@@ -61,4 +61,14 @@ public class Product {
         this.prodQty = prodQty;
     }
 
+    public Product(String name, String desc, int iD, String type, double price, double cost, int qty ){
+        this.prodName = name;
+        this.prodDesc = desc;
+        this.prodID = iD;
+        this.prodType = type;
+        this.prodPrice = price;
+        this.prodCost = cost;
+        this.prodQty = qty;
+    }
+
 }
