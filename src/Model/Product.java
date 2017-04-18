@@ -6,7 +6,7 @@ package Model;
 public class Product {
     private String prodName;
     private String prodDesc;
-    private String prodID;
+    private int prodID;
     private String prodType;
     private double prodPrice;
     private double prodCost;
@@ -29,11 +29,11 @@ public class Product {
         this.prodDesc = prodDesc;
     }
 
-    public String getProdID() {
+    public int getProdID() {
         return prodID;
     }
 
-    public void setProdID(String prodID) {
+    public void setProdID(int prodID) {
         this.prodID = prodID;
     }
 
