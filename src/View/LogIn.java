@@ -8,14 +8,15 @@ import java.awt.event.ActionListener;
 /**
  * Created by conradoguzman on 4/16/17.
  */
-public class Start {
+public class LogIn {
     private JPasswordField passwordField1;
     private JTextField textField1;
     private JButton loginButton;
     private JButton registerButton;
     private JPanel home;
+    private JButton quitButton;
 
-    public Start() {
+    public LogIn() {
 
         JFrame frame = new JFrame("Login Portal");
 
@@ -59,5 +60,11 @@ public class Start {
             }
         });
 
+        quitButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.exit(0);
+            }
+        });
     }
 }

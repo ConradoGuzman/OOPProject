@@ -28,14 +28,14 @@ public class Register {
             @Override
             public void actionPerformed(ActionEvent e) {
                 frame.dispose();
-                Start start = new Start();
+                LogIn logIn = new LogIn();
             }
         });
         cancelButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 frame.dispose();
-                Start start = new Start();
+                LogIn logIn = new LogIn();
             }
         });
     }

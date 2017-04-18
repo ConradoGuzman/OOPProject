@@ -25,7 +25,7 @@ public class Seller {
             @Override
             public void actionPerformed(ActionEvent e) {
                 frame.dispose();
-                Start start = new Start();
+                LogIn logIn = new LogIn();
             }
         });
 
