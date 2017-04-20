@@ -1,5 +1,7 @@
 package View;
 
+import Controller.StoreController;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -9,12 +11,13 @@ import java.awt.event.ActionListener;
  * Created by conradoguzman on 4/16/17.
  */
 public class LogIn {
-    private JPasswordField passwordField1;
-    private JTextField textField1;
+    private JTextField passwordField1;
+    private JTextField usernameField;
     private JButton loginButton;
     private JButton registerButton;
     private JPanel home;
     private JButton quitButton;
+    private StoreController controller = new StoreController();
 
     public LogIn() {
 
@@ -28,45 +31,24 @@ public class LogIn {
         registerButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                frame.dispose();
-                new Register(textField1.getText());
+                //Launch User Registration
+                controller.register(frame);
+
             }
         });
-
-
-        //loginButton.addActionListener(e -> loginPanelController.loginButtonActionPerformed(e, frame ,usernameField, passwordField));
 
         loginButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 //Check credentials
-
-                String username = textField1.getText();
-
-                if (username.contentEquals("buyer")){
-
-                    new Buyer();
-                    frame.dispose();
-                }
-
-                else if (username.contentEquals("seller")){
-
-                    new Seller();
-                    frame.dispose();
-                }
-
-
-                else{
-                    JOptionPane.showMessageDialog(null, " Please Enter Valid Credentials");
-                }
-
+                controller.login(frame, usernameField, passwordField1);
             }
         });
 
         quitButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                JOptionPane.showMessageDialog(null, "Bye Felicia");
+                JOptionPane.showMessageDialog(null, "Bye Felicia", "Program Termination", JOptionPane.WARNING_MESSAGE);
                 System.exit(0);
             }
         });

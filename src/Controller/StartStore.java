@@ -1,6 +1,8 @@
 package Controller;
 
 import Model.Inventory;
+import Model.User;
+import Model.UserList;
 import View.LogIn;
 
 import java.io.File;
@@ -15,6 +17,13 @@ public class StartStore {
 
         File file = new File("Database.dat");
         Inventory inventory;
+
+        UserList list = new UserList();
+        User user = new User("buyer", "password", "buyer");
+
+        list.addUser(user);
+
+        System.out.println("In the right place");
 
         //read in inventory
         //read in users

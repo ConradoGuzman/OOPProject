@@ -16,7 +16,7 @@ public class Register {
     private JTextField textField1;
     private JButton cancelButton;
 
-    public Register(String username) {
+    public Register() {
         JFrame frame = new JFrame("Registration Portal");
 
         frame.setContentPane(panel1);
