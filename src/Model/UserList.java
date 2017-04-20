@@ -9,7 +9,9 @@ public class UserList {
 
     private ArrayList<User> database;
 
-    public UserList()
+    private static final UserList instance = new UserList();
+
+    private UserList()
     {
         database = new ArrayList<>();
     }
@@ -18,9 +20,6 @@ public class UserList {
         database.add(obj);
     }
 
-    public void removeUser(User obj){
-        database.remove(obj);
-    }
 
 
 
@@ -32,9 +31,7 @@ public class UserList {
     public User getUser(String username) {
 
         for (User user : database) {
-
             if(username.equals(user.getUsrName())) {
-
                 return user;
             }
         }
@@ -49,13 +46,19 @@ public class UserList {
      */
     public boolean searchUser(String username) {
 
+
         for (User user : database){
             if(username.equals(user.getUsrName())) {
-
                 return true;
             }
 
         }
+
         return false;
+    }
+
+    public static UserList getInstance()
+    {
+        return instance;
     }
 }

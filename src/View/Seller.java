@@ -11,10 +11,17 @@ public class Seller {
     public JPanel SellerPane;
     private JPanel home;
     private JButton logOutButton;
+    private JButton updateQtyButton;
+    private JButton addItemsButton;
+    private JButton removeItemsButton;
+    private JTextField textField1;
+    private JTextField textField2;
+    private JTextField textField3;
+    private JTable table1;
 
     public Seller(){
 
-        JFrame frame = new JFrame("Buyer Portal");
+        JFrame frame = new JFrame("Seller Portal");
 
         frame.setContentPane(home);
         frame.pack();

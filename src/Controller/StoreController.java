@@ -1,7 +1,9 @@
 package Controller;
 
+import Model.User;
 import Model.UserList;
 import View.Buyer;
+import View.LogIn;
 import View.Register;
 import View.Seller;
 
@@ -12,7 +14,10 @@ import javax.swing.*;
  */
 public class StoreController {
 
-    UserList list = new UserList();
+    UserList list = UserList.getInstance();
+
+
+    private User user;
 
     public void login(JFrame frame, JTextField usernameEntered, JTextField passwordEntered){
 
@@ -21,27 +26,23 @@ public class StoreController {
         System.out.println(password);
 
         if (list.searchUser(username)){
-
-            System.out.println("In the right place");
-
-            if (list.getUser(username).getUsrPassword().equals(passwordEntered))
+            if ((list.getUser(username).getUsrPassword()).equals(password))
             {
                 if (list.getUser(username).getUsrType().equals("buyer"))
                 {
-                    System.out.println("In the right place");
                     frame.dispose();
                     Buyer buyer = new Buyer();
                 }
-                else if (list.getUser(username).getUsrType().equals("seller"))
-                {
+                if (list.getUser(username).getUsrType().equals("seller")) {
                     frame.dispose();
                     Seller seller = new Seller();
                 }
-                else
-                {
-                    JOptionPane.showMessageDialog(null, "Please enter valid credentials", "Incorrect Login", JOptionPane.WARNING_MESSAGE);
-                }
             }
+            else
+            {
+                JOptionPane.showMessageDialog(null, "Please enter valid credentials", "Incorrect Login", JOptionPane.WARNING_MESSAGE);
+            }
+
         }else
         {
             JOptionPane.showMessageDialog(null, "Please enter valid credentials", "Incorrect Login", JOptionPane.WARNING_MESSAGE);
@@ -53,4 +54,48 @@ public class StoreController {
         frame.dispose();
         Register register= new Register();
     }
+
+    public void quit(JFrame frame){
+        //JOptionPane.showMessageDialog(null, "Bye Felicia", "Program Termination", JOptionPane.WARNING_MESSAGE);
+
+
+
+
+        System.exit(0);
+    }
+
+
+    public void registerUsr(JFrame frame, JTextField userName, JTextField pw1, JTextField pw2, JComboBox comboBox1) {
+
+        System.out.println("In Register User");
+        if (!pw1.getText().equals(pw2.getText())){
+            JOptionPane.showMessageDialog(null, "Passwords Do not Match", "Passwords Do not Match", JOptionPane.WARNING_MESSAGE);
+        }
+
+        else {
+            if(comboBox1.getSelectedIndex() == 0)
+            {
+                user = new User(userName.getText(), pw1.getText(), "buyer");
+                JOptionPane.showMessageDialog(null, "Please Log in " + userName.getText() + ", Happy Shopping!", "Registered", JOptionPane.INFORMATION_MESSAGE);
+            }
+            if(comboBox1.getSelectedIndex() == 1)
+            {
+                user = new User(userName.getText(), pw1.getText(), "seller");
+                JOptionPane.showMessageDialog(null, "Please Log in " + userName.getText(), "Registered", JOptionPane.INFORMATION_MESSAGE);
+            }
+            list.addUser(user);
+            frame.dispose();
+            LogIn logIn = new LogIn();
+        }
+
+    }
+
+
+    public void logOut(JFrame frame) {
+
+        frame.dispose();
+        LogIn logIn = new LogIn();
+    }
 }
+
+

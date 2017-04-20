@@ -12,9 +12,9 @@ public class Buyer extends javax.swing.JFrame {
     private JButton addToCartButton;
     private JButton descriptionButton;
     private JButton checkoutButton;
-    private JTable table1;
     private JPanel home;
     private JButton logOutButton;
+    private JTable table1;
 
     public Buyer() {
 

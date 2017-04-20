@@ -10,17 +10,15 @@ public class User {
     private String usrType;
     
 
-    public User(String userName, String usrPassword, String usrType)
+    public User(String user, String password, String type)
     {
-        this.usrName = userName;
-        this.usrPassword = usrPassword;
-        this.usrType = usrType;
+        usrName = user;
+        usrPassword = password;
+        usrType = type;
     }
 
-
-
     public String getUsrName() {
-        return this.usrName;
+        return usrName;
     }
 
     public void setUsrName(String usrName) {

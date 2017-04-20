@@ -1,5 +1,7 @@
 package View;
 
+import Controller.StoreController;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -11,10 +13,12 @@ public class Register {
 
     private JPanel panel1;
     private JButton registerButton;
-    private JPasswordField passwordField1;
-    private JPasswordField passwordField2;
-    private JTextField textField1;
+    private JTextField userName;
     private JButton cancelButton;
+    private JTextField pw1;
+    private JTextField pw2;
+    private JComboBox comboBox1;
+    private StoreController controller = new StoreController();
 
     public Register() {
         JFrame frame = new JFrame("Registration Portal");
@@ -27,15 +31,15 @@ public class Register {
         registerButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                frame.dispose();
-                LogIn logIn = new LogIn();
+
+                controller.registerUsr(frame, userName, pw1, pw2, comboBox1);
+
             }
         });
         cancelButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                frame.dispose();
-                LogIn logIn = new LogIn();
+                controller.logOut(frame);
             }
         });
     }

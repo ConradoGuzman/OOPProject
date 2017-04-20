@@ -27,13 +27,14 @@ public class LogIn {
         frame.pack();
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
+        frame.getRootPane().setDefaultButton(loginButton);
+
 
         registerButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 //Launch User Registration
                 controller.register(frame);
-
             }
         });
 
@@ -48,8 +49,14 @@ public class LogIn {
         quitButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                JOptionPane.showMessageDialog(null, "Bye Felicia", "Program Termination", JOptionPane.WARNING_MESSAGE);
-                System.exit(0);
+                //Program termination
+
+
+
+
+
+
+                controller.quit(frame);
             }
         });
     }
