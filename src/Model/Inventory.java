@@ -25,4 +25,8 @@ public class Inventory {
         inventory.add(pen);
 
     }
+
+    public void getInstance(){
+
+    }
 }

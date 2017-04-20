@@ -33,6 +33,9 @@ public class LogIn {
             }
         });
 
+
+        //loginButton.addActionListener(e -> loginPanelController.loginButtonActionPerformed(e, frame ,usernameField, passwordField));
+
         loginButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -63,6 +66,7 @@ public class LogIn {
         quitButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                JOptionPane.showMessageDialog(null, "Bye Felicia");
                 System.exit(0);
             }
         });

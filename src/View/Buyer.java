@@ -9,8 +9,8 @@ import java.awt.event.ActionListener;
  */
 public class Buyer extends javax.swing.JFrame {
 
-    private JButton shopButton;
-    private JButton updateButton;
+    private JButton addToCartButton;
+    private JButton descriptionButton;
     private JButton checkoutButton;
     private JTable table1;
     private JPanel home;
