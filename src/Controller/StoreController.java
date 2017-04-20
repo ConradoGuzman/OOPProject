@@ -23,7 +23,6 @@ public class StoreController {
 
         String username = usernameEntered.getText();
         String password = passwordEntered.getText();
-        System.out.println(password);
 
         if (list.searchUser(username)){
             if ((list.getUser(username).getUsrPassword()).equals(password))
@@ -67,7 +66,6 @@ public class StoreController {
 
     public void registerUsr(JFrame frame, JTextField userName, JTextField pw1, JTextField pw2, JComboBox comboBox1) {
 
-        System.out.println("In Register User");
         if (!pw1.getText().equals(pw2.getText())){
             JOptionPane.showMessageDialog(null, "Passwords Do not Match", "Passwords Do not Match", JOptionPane.WARNING_MESSAGE);
         }
