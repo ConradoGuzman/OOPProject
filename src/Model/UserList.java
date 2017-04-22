@@ -1,6 +1,8 @@
 package Model;
 
+import java.io.*;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 /**
  * Created by conradoguzman on 4/19/17.
@@ -8,9 +10,7 @@ import java.util.ArrayList;
 public class UserList {
 
     private ArrayList<User> database;
-
     private static final UserList instance = new UserList();
-
     private UserList()
     {
         database = new ArrayList<>();
@@ -19,9 +19,6 @@ public class UserList {
     public void addUser(User obj){
         database.add(obj);
     }
-
-
-
 
     /**
      * Get the user object
@@ -46,19 +43,34 @@ public class UserList {
      */
     public boolean searchUser(String username) {
 
-
         for (User user : database){
             if(username.equals(user.getUsrName())) {
                 return true;
             }
-
         }
-
         return false;
     }
 
     public static UserList getInstance()
     {
+
         return instance;
     }
+
+    public void serialize() {
+
+        try {
+
+            FileOutputStream fOut = new FileOutputStream("users.dat");
+            ObjectOutputStream out = new ObjectOutputStream(fOut);
+            out.writeObject(database);
+            out.close();
+            fOut.close();
+            System.out.printf("Data was saved!");
+        } catch (IOException i) {
+            System.out.printf("Error saving data");
+        }
+    }
+
+
 }

@@ -1,9 +1,10 @@
 package Model;
+import java.io.Serializable;
 
 /**
  * Created by conradoguzman on 4/17/17.
  */
-public class User {
+public class User implements Serializable {
 
     private String usrName;
     private String usrPassword;

@@ -11,6 +11,10 @@ public class StartStore {
 
     public static void main (String [] args){
 
+        int revenues;
+        int costs;
+        int profits;
+
         UserList list = UserList.getInstance();
 
 

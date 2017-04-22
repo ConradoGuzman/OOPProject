@@ -9,12 +9,14 @@ import View.Seller;
 
 import javax.swing.*;
 
+import static Model.UserList.*;
+
 /**
  * Created by conradoguzman on 4/19/17.
  */
 public class StoreController {
 
-    UserList list = UserList.getInstance();
+    UserList list = getInstance();
 
 
     private User user;
@@ -23,6 +25,8 @@ public class StoreController {
 
         String username = usernameEntered.getText();
         String password = passwordEntered.getText();
+
+
 
         if (list.searchUser(username)){
             if ((list.getUser(username).getUsrPassword()).equals(password))
@@ -57,8 +61,7 @@ public class StoreController {
     public void quit(JFrame frame){
         //JOptionPane.showMessageDialog(null, "Bye Felicia", "Program Termination", JOptionPane.WARNING_MESSAGE);
 
-
-
+        list.serialize();
 
         System.exit(0);
     }
@@ -90,7 +93,6 @@ public class StoreController {
 
 
     public void logOut(JFrame frame) {
-
         frame.dispose();
         LogIn logIn = new LogIn();
     }

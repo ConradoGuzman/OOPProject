@@ -14,10 +14,10 @@ public class Seller {
     private JButton updateQtyButton;
     private JButton addItemsButton;
     private JButton removeItemsButton;
-    private JTextField textField1;
-    private JTextField textField2;
-    private JTextField textField3;
     private JTable table1;
+    private JLabel revenueLabel;
+    private JLabel costLabel;
+    private JLabel profitLabel;
 
     public Seller(){
 

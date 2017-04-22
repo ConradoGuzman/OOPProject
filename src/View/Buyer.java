@@ -15,6 +15,7 @@ public class Buyer extends javax.swing.JFrame {
     private JPanel home;
     private JButton logOutButton;
     private JTable table1;
+    private JLabel orderTotal;
 
     public Buyer() {
 
@@ -34,5 +35,12 @@ public class Buyer extends javax.swing.JFrame {
         });
     }
 
+    public JLabel getOrderTotal() {
+        return orderTotal;
+    }
+
+    public void setOrderTotal(JLabel orderTotal) {
+        this.orderTotal = orderTotal;
+    }
 }
 
