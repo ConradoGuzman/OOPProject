@@ -1,16 +1,20 @@
 package Model;
 
-import java.io.*;
+import View.Buyer;
+import View.Seller;
+
+import javax.swing.*;
+import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Iterator;
 
 /**
  * Created by conradoguzman on 4/19/17.
  */
-public class UserList {
+public class UserList implements Serializable {
 
-    private ArrayList<User> database;
-    private static final UserList instance = new UserList();
+    private final ArrayList<User> database;
+    private static UserList instance = new UserList();
+
     private UserList()
     {
         database = new ArrayList<>();
@@ -51,26 +55,19 @@ public class UserList {
         return false;
     }
 
+    public static void resetInstance(UserList list)
+    {
+        instance = list;
+    }
+
     public static UserList getInstance()
     {
 
         return instance;
     }
 
-    public void serialize() {
 
-        try {
 
-            FileOutputStream fOut = new FileOutputStream("users.dat");
-            ObjectOutputStream out = new ObjectOutputStream(fOut);
-            out.writeObject(database);
-            out.close();
-            fOut.close();
-            System.out.printf("Data was saved!");
-        } catch (IOException i) {
-            System.out.printf("Error saving data");
-        }
-    }
 
 
 }

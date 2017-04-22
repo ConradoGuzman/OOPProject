@@ -61,8 +61,6 @@ public class StoreController {
     public void quit(JFrame frame){
         //JOptionPane.showMessageDialog(null, "Bye Felicia", "Program Termination", JOptionPane.WARNING_MESSAGE);
 
-        list.serialize();
-
         System.exit(0);
     }
 
