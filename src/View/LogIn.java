@@ -30,6 +30,7 @@ public class LogIn {
         frame.getRootPane().setDefaultButton(loginButton);
 
 
+
         registerButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

@@ -1,5 +1,7 @@
 package Controller;
 
+import Model.Inventory;
+import Model.Product;
 import Model.User;
 import Model.UserList;
 import View.Buyer;
@@ -17,6 +19,7 @@ import static Model.UserList.*;
 public class StoreController {
 
     UserList list = getInstance();
+
 
 
     private User user;
@@ -93,6 +96,12 @@ public class StoreController {
     public void logOut(JFrame frame) {
         frame.dispose();
         LogIn logIn = new LogIn();
+    }
+
+    public void additemPanel(Product newItem){
+
+        Inventory local = Inventory.getInstance();
+        local.addProduct(newItem);
     }
 }
 

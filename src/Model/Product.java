@@ -8,11 +8,12 @@ import java.io.Serializable;
 public class Product implements Serializable {
     private String prodName;
     private String prodDesc;
-    private int prodID;
+    private String prodID;
     private String prodType;
     private double prodPrice;
     private double prodCost;
     private int prodQty;
+
 
 
     public String getProdName() {
@@ -31,11 +32,11 @@ public class Product implements Serializable {
         this.prodDesc = prodDesc;
     }
 
-    public int getProdID() {
+    public String getProdID() {
         return prodID;
     }
 
-    public void setProdID(int prodID) {
+    public void setProdID(String prodID) {
         this.prodID = prodID;
     }
 
@@ -63,7 +64,7 @@ public class Product implements Serializable {
         this.prodQty = prodQty;
     }
 
-    public Product(String name, String desc, int iD, String type, double price, double cost, int qty ){
+    public Product(String name, String desc, String iD, String type, double price, double cost, int qty ){
         this.prodName = name;
         this.prodDesc = desc;
         this.prodID = iD;

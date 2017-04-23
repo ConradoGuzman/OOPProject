@@ -1,5 +1,6 @@
 package Controller;
 
+import Model.Inventory;
 import Model.UserList;
 import View.LogIn;
 
@@ -17,9 +18,12 @@ public class StartStore {
         int costs;
         int profits;
 
-        UserList database;
 
-        File file = new File("Database.ser");
+        //read in Users
+        UserList database;
+        Inventory inventoryDB = Inventory.getInstance();
+
+        File file = new File("Users.dat");
 
         if (file.isFile() && file.canRead())
         {
@@ -33,6 +37,24 @@ public class StartStore {
             database = UserList.getInstance();
         }
 
+
+        //Read in Inventory
+        Inventory InventoryDatabase;
+
+        File file2 = new File("Inventory.dat");
+
+        if (file2.isFile() && file2.canRead())
+        {
+            ObjectInputStream in2 = new ObjectInputStream(new FileInputStream(file2));
+            InventoryDatabase = (Inventory) in2.readObject();
+            Inventory.resetInstance(InventoryDatabase);
+            in2.close();
+        }
+        else
+        {
+            InventoryDatabase = Inventory.getInstance();
+        }
+
         //Store Landing Page
         LogIn logIn = new LogIn();
 
@@ -42,9 +64,15 @@ public class StartStore {
             @Override
             public void run() {
                 try {
-                    ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("Database.ser"));
+                    Inventory inventoryDB = Inventory.getInstance();
+                    ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("Users.dat"));
                     out.writeObject(database);
                     out.close();
+
+                    ObjectOutputStream out2 = new ObjectOutputStream(new FileOutputStream("Inventory.dat"));
+                    out2.writeObject(inventoryDB);
+                    out2.close();
+
                 }
                 catch (Exception e)
                 {
@@ -52,7 +80,6 @@ public class StartStore {
                 }
             }
         }));
-
 
 
 
