@@ -58,8 +58,6 @@ public class StartStore {
         //Store Landing Page
         LogIn logIn = new LogIn();
 
-
-
         Runtime.getRuntime().addShutdownHook(new Thread(new Runnable() {
             @Override
             public void run() {
@@ -80,13 +78,6 @@ public class StartStore {
                 }
             }
         }));
-
-
-
-        //read in inventory
-        //read in users
-
-
 
     }
 }

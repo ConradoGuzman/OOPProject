@@ -14,6 +14,7 @@ public class Cart {
     private double total = 0;
 
 
+
     public void add(Product product) {
 
         cartInstance.add(product);

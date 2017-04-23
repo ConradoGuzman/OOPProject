@@ -16,13 +16,10 @@ public class Seller {
     public JPanel SellerPane;
     private JPanel home;
     private JButton logOutButton;
-    private JButton updateQtyButton;
+    private JButton updateButton;
     private JButton addItemsButton;
     private JButton removeItemsButton;
     private JTable table1;
-    private JLabel revenueLabel;
-    private JLabel costLabel;
-    private JLabel profitLabel;
 
     public Seller(){
 
@@ -32,6 +29,7 @@ public class Seller {
         frame.pack();
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         displayProducts();
 
@@ -59,15 +57,30 @@ public class Seller {
 
                 },
                 new String [] {
-                        "Product", "Description", "ID", "Cost", "Price", "Cost", "Quantity", "Update"
+                        "Product", "Description", "ID", "Cost", "Price", "Quantity", "Update"
                 }
         ) {
             Class[] types = new Class [] {
-                    java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Double.class, java.lang.Double.class, java.lang.Integer.class, java.lang.Boolean.class
+                    java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Double.class, java.lang.Double.class, java.lang.Integer.class, java.lang.Boolean.class
             };
             boolean[] canEdit = new boolean [] {
-                    false, false, false, false, true, false, true
+                    false, false, false, false, false, false, true
             };
+
+            public Class getColumnClass(int columnIndex)
+            {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex)
+            {
+                return canEdit [columnIndex];
+            }
+
+
+
+
+
 
         });
 
@@ -76,8 +89,8 @@ public class Seller {
 
 
         for(Product product : allItems) {
-            theListTable.addRow(new Object[]{product.getProdName(), product.getProdID(), product.getProdName(), product.getProdQty(),
-                    product.getProdCost(), product.getProdPrice(), false});
+            theListTable.addRow(new Object[]{product.getProdName(), product.getProdDesc() , product.getProdID(), product.getProdCost(), product.getProdPrice(),
+                     product.getProdQty(), false});
         }
 
     }

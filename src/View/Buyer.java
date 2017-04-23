@@ -1,8 +1,13 @@
 package View;
 
+import Model.Inventory;
+import Model.Product;
+
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 /**
  * Created by conradoguzman on 4/6/17.
@@ -23,6 +28,7 @@ public class Buyer extends javax.swing.JFrame {
 
         frame.setContentPane(home);
         frame.pack();
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
 
@@ -54,18 +60,35 @@ public class Buyer extends javax.swing.JFrame {
 
                 },
                 new String [] {
-                        "Product", "Description", "ID", "Cost", "Price", "Cost", "Quantity", "Purchase"
+                        "Product", "Description", "ID", "Cost", "Price", "Quantity", "Purchase"
                 }
         ) {
             Class[] types = new Class [] {
-                    java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Double.class, java.lang.Double.class, java.lang.Integer.class, java.lang.Boolean.class
+                    java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Double.class, java.lang.Double.class, java.lang.Integer.class, java.lang.Boolean.class
             };
             boolean[] canEdit = new boolean [] {
                     false, false, false, false, true, false, true
             };
 
+            public Class getColumnClass(int columnIndex)
+            {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex)
+            {
+                return canEdit [columnIndex];
+            }
+
         });
 
+        DefaultTableModel theListTable = (DefaultTableModel) table1.getModel();
+        ArrayList<Product> allItems = Inventory.getInstance().getProductList();
+
+        for(Product product : allItems) {
+            theListTable.addRow(new Object[]{product.getProdName(), product.getProdDesc(), product.getProdID(), product.getProdCost(), product.getProdPrice(),
+                    product.getProdQty(), false});
+        }
     }
 
 
