@@ -49,6 +49,12 @@ public class Seller {
                 AddItem add = new AddItem();
             }
         });
+        removeItemsButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+
+            }
+        });
     }
     public void displayProducts()
     {
@@ -76,10 +82,6 @@ public class Seller {
             {
                 return canEdit [columnIndex];
             }
-
-
-
-
 
 
         });
