@@ -32,9 +32,15 @@ public class Buyer extends javax.swing.JFrame {
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
 
-
+        /**
+         * Function call that populates the JTable contents
+         */
         displayProducts();
 
+        /**
+         * Action listener for the buyer panel, closes the current pane and
+         * opens the login pane.
+         */
         logOutButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -53,6 +59,9 @@ public class Buyer extends javax.swing.JFrame {
         this.orderTotal = orderTotal;
     }
 
+    /**
+     * Function that displays the contents of the JTable in the buyer frame.
+     */
     public void displayProducts()
     {
         table1.setModel(new javax.swing.table.DefaultTableModel(

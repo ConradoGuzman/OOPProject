@@ -9,9 +9,10 @@ import java.awt.event.ActionListener;
 
 /**
  * Created by conradoguzman on 4/22/17.
+ * View controller for the add item from
  */
 public class AddItem extends javax.swing.JFrame{
-    private JPanel addItemPanel;
+    //private JPanel addItemPanel;
     private JTextField name;
     private JTextField cost;
     private JTextArea description;
@@ -22,11 +23,14 @@ public class AddItem extends javax.swing.JFrame{
     private JButton submitButton;
     private JButton cancelButton;
     private JPanel panel1;
+    private JPanel addItemPanel;
     private StoreController controller = new StoreController();
 
     public  AddItem() {
 
-
+        /**
+         * Creates a new frame for the add item window.
+         */
         JFrame frame = new JFrame("Add Item");
 
         frame.setContentPane(panel1);;
@@ -34,6 +38,12 @@ public class AddItem extends javax.swing.JFrame{
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
 
+        /**
+         * Action listener for the submit button on the submit button.
+         * Takes in all of the seller's input and passes the info to the product constructor
+         * then adds it to the inventory. Finally closes the add item panel and closes the add
+         * item panel.
+         */
         submitButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -59,6 +69,11 @@ public class AddItem extends javax.swing.JFrame{
 
             }
         });
+
+        /**
+         * Action listener for the cancel button. Closes the add item
+         * panel and returns the seller to the seller pane
+         */
         cancelButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

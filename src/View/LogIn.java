@@ -9,6 +9,7 @@ import java.awt.event.ActionListener;
 
 /**
  * Created by conradoguzman on 4/16/17.
+ * Controller for the Login panel
  */
 public class LogIn {
     private JTextField passwordField1;
@@ -22,7 +23,6 @@ public class LogIn {
     public LogIn() {
 
         JFrame frame = new JFrame("Login Portal");
-
         frame.setContentPane(home);
         frame.pack();
         frame.setLocationRelativeTo(null);
@@ -30,8 +30,9 @@ public class LogIn {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.getRootPane().setDefaultButton(loginButton);
 
-
-
+        /**
+         * Action listener for the register button on the login pane.
+         */
         registerButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -40,6 +41,9 @@ public class LogIn {
             }
         });
 
+        /**
+         * Action listener for the login button on the login pane
+         */
         loginButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -48,16 +52,13 @@ public class LogIn {
             }
         });
 
+        /**
+         * Action listener for the quit button on the login pane
+         */
         quitButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 //Program termination
-
-
-
-
-
-
                 controller.quit(frame);
             }
         });

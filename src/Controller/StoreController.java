@@ -16,21 +16,36 @@ import static Model.UserList.*;
 /**
  * Created by conradoguzman on 4/19/17.
  */
+
+/**
+ * Controller class containing functions from action listener buttons.
+ */
 public class StoreController {
 
+    /**
+     * Retrieve the singleton instance of my inventory
+     */
     UserList list = getInstance();
-
-
 
     private User user;
 
+    /**
+     * Validates the user's login credentials and decides which user panel to show next.
+     * @param frame - passes the current instance of the frame in order to close it out.
+     * @param usernameEntered is the username entered by the user
+     * @param passwordEntered is the password entered by the user
+     */
     public void login(JFrame frame, JTextField usernameEntered, JTextField passwordEntered){
 
+        /**
+         * Retrieve the username and password from the GUI form
+         */
         String username = usernameEntered.getText();
         String password = passwordEntered.getText();
 
-
-
+        /**
+         * Selects from which pane will be shown next
+         */
         if (list.searchUser(username)){
             if ((list.getUser(username).getUsrPassword()).equals(password))
             {
@@ -56,18 +71,32 @@ public class StoreController {
 
     }
 
+    /**
+     * Calls the register pane
+     * @param frame is the current instance for the frame.
+     */
     public void register(JFrame frame){
         frame.dispose();
         Register register= new Register();
     }
 
+    /**
+     * A quit function that allows the user to terminate the program
+     * @param frame that we would like to close
+     */
     public void quit(JFrame frame){
-        //JOptionPane.showMessageDialog(null, "Bye Felicia", "Program Termination", JOptionPane.WARNING_MESSAGE);
-
+        JOptionPane.showMessageDialog(null, "Thanks for using my Program", "Program Termination", JOptionPane.WARNING_MESSAGE);
         System.exit(0);
     }
 
-
+    /**
+     * Register user pane that validates the user input
+     * @param frame is the current instance of the JFrame
+     * @param userName is the username that the new user wants to use
+     * @param pw1 the password entered by the user in the first text box
+     * @param pw2 the password entered by the user in the second text box
+     * @param comboBox1 Stipulates weather the user is to be a seller or a buyer.
+     */
     public void registerUsr(JFrame frame, JTextField userName, JTextField pw1, JTextField pw2, JComboBox comboBox1) {
 
         if (!pw1.getText().equals(pw2.getText())){
@@ -89,15 +118,21 @@ public class StoreController {
             frame.dispose();
             LogIn logIn = new LogIn();
         }
-
     }
 
-
+    /**
+     * Returns the user to the login pane
+     * @param frame is the current instance of the JFrame
+     */
     public void logOut(JFrame frame) {
         frame.dispose();
         LogIn logIn = new LogIn();
     }
 
+    /**
+     * Calls the AddItem Panel
+     * @param newItem that we are looking to add tot the inventory
+     */
     public void additemPanel(Product newItem){
 
         Inventory local = Inventory.getInstance();

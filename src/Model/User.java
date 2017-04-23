@@ -9,8 +9,14 @@ public class User implements Serializable {
     private String usrName;
     private String usrPassword;
     private String usrType;
-    
 
+
+    /**
+     * Constructor for User Objects
+     * @param user the username
+     * @param password the password
+     * @param type weather the user is a buyer or a seller
+     */
     public User(String user, String password, String type)
     {
         usrName = user;

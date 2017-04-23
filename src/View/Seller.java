@@ -11,6 +11,7 @@ import java.util.ArrayList;
 
 /**
  * Created by conradoguzman on 4/6/17.
+ * Controller for the Seller pane
  */
 public class Seller {
     public JPanel SellerPane;
@@ -21,18 +22,22 @@ public class Seller {
     private JButton removeItemsButton;
     private JTable table1;
 
+    /**
+     * Creates a JFrame for the seller pane.
+     */
     public Seller(){
 
         JFrame frame = new JFrame("Seller Portal");
-
         frame.setContentPane(home);
         frame.pack();
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
         displayProducts();
 
+        /**
+         * Action Listener for the log out button.
+         */
         logOutButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -41,6 +46,9 @@ public class Seller {
             }
         });
 
+        /**
+         * Action Listener for the add items button
+         */
         addItemsButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -49,6 +57,10 @@ public class Seller {
                 AddItem add = new AddItem();
             }
         });
+
+        /**
+         * Action listener for the remove items button
+         */
         removeItemsButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
@@ -56,6 +68,10 @@ public class Seller {
             }
         });
     }
+
+    /**
+     * Display funtion that populates the contents of the JTable.
+     */
     public void displayProducts()
     {
         table1.setModel(new javax.swing.table.DefaultTableModel(

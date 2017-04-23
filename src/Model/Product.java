@@ -5,6 +5,7 @@ import java.io.Serializable;
 /**
  * Created by conradoguzman on 4/17/17.
  */
+
 public class Product implements Serializable {
     private String prodName;
     private String prodDesc;
