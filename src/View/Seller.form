@@ -47,12 +47,12 @@
                           <text value="Log Out"/>
                         </properties>
                       </component>
-                      <component id="90a78" class="javax.swing.JButton" binding="updateButton" default-binding="true">
+                      <component id="90a78" class="javax.swing.JButton" binding="pAndLButton" default-binding="true">
                         <constraints>
                           <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                         </constraints>
                         <properties>
-                          <text value="Update"/>
+                          <text value="P and L"/>
                         </properties>
                       </component>
                       <component id="1142e" class="javax.swing.JButton" binding="addItemsButton" default-binding="true">

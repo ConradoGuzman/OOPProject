@@ -17,7 +17,7 @@ public class Seller {
     public JPanel SellerPane;
     private JPanel home;
     private JButton logOutButton;
-    private JButton updateButton;
+    private JButton pAndLButton;
     private JButton addItemsButton;
     private JButton removeItemsButton;
     private JTable table1;
@@ -64,7 +64,13 @@ public class Seller {
         removeItemsButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-
+                JOptionPane.showMessageDialog(null, "Please enter secondary credentials", "Security", JOptionPane.WARNING_MESSAGE);
+            }
+        });
+        pAndLButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                JOptionPane.showMessageDialog(null, "Profits are  good", "Program Termination", JOptionPane.WARNING_MESSAGE);
             }
         });
     }
